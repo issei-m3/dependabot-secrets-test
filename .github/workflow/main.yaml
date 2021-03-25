@@ -1,0 +1,21 @@
+name: Main
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  main:
+    name: Run main jobs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: git log -n 1
+
+      - name: Run using-non-critical script
+        run: node ./using-non-critical.js
+        env:
+          NON_CRITICAL: ${{ secrets.NON_CRITICAL }}
