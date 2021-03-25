@@ -15,12 +15,14 @@ jobs:
 
       - run: git log -n 1
 
-      - name: Run using-non-critical script
-        run: node ./using-non-critical.js
+      - name: Run script with NON_CRITICAL
+        run: node ./run.js
         env:
-          NON_CRITICAL: ${{ secrets.NON_CRITICAL }}
+          SECRET_NAME: NON_CRITICAL
+          SECRET_VALUE: ${{ secrets.NON_CRITICAL }}
 
-      - name: Run using-critical script
-        run: node ./using-critical.js
+      - name: Run script with CRITICAL
+        run: node ./run.js
         env:
-          CRITICAL: ${{ secrets.CRITICAL }}
+          SECRET_NAME: CRITICAL
+          SECRET_VALUE: ${{ secrets.CRITICAL }}
