@@ -19,3 +19,8 @@ jobs:
         run: node ./using-non-critical.js
         env:
           NON_CRITICAL: ${{ secrets.NON_CRITICAL }}
+
+      - name: Run using-critical script
+        run: node ./using-critical.js
+        env:
+          CRITICAL: ${{ secrets.CRITICAL }}
