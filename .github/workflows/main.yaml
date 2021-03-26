@@ -16,7 +16,14 @@ jobs:
       (github.event_name == 'pull_request_target' && github.actor == 'issei-m2') ||
       (github.event_name != 'pull_request_target' && github.actor != 'issei-m2')
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        if: ${{ github.event_name != 'pull_request_target' }}
+        uses: actions/checkout@v2
+
+      - name: Checkout PR
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with: { ref: ${{ github.event.pull_request.head.sha }} }
 
       - run: git log -n 1
 
