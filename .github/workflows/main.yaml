@@ -12,7 +12,9 @@ jobs:
   main:
     name: Run main jobs
     runs-on: ubuntu-latest
-    if: github.event_name != 'pull_request_target' || github.actor == 'issei-m2'
+    if: |
+      (github.event_name == 'pull_request_target' && github.actor == 'issei-m2') ||
+      (github.event_name != 'pull_request_target' && github.actor != 'issei-m2')
     steps:
       - name: Checkout
         if: ${{ github.event_name != 'pull_request_target' }}
