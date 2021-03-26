@@ -33,9 +33,3 @@ jobs:
         env:
           SECRET_NAME: NON_CRITICAL
           SECRET_VALUE: ${{ secrets.NON_CRITICAL }}
-
-      - name: Run script with CRITICAL
-        run: node ./run.js
-        env:
-          SECRET_NAME: CRITICAL
-          SECRET_VALUE: ${{ secrets.CRITICAL }}
