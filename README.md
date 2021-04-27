@@ -1,7 +1,4 @@
 # dependabot-secrets-test
 
-Following secrets are available for this repository:
-
-- `NON_CRITICAL`: Considered to be a relatively non-sensitive information (such as a read-only credentials) but need to be kept as secure as possible 
-- `CRITICAL`: Considered to be a critical information (such as a write credentials), must NOT be compromised
+This repository has a secret named `SENSITIVE_INFO` that should be protected from an attacker who tries to steal it
 
